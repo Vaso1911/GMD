@@ -1,0 +1,102 @@
+    <nav class="navbar">
+        <div class="header-top navbar-container container">
+            <input type="checkbox" name="" id="">
+            <div class="hamburger-lines">
+                <span class="line line1"></span>
+                <span class="line line2"></span>
+                <span class="line line3"></span>
+            </div>
+            <ul class="top-panel-nav menu-items">
+                <li class="li-items">
+                    <div class="animate">
+                        <a class="partner unselectable" href="./index.php"><span class="material-icons unselectable">
+                    cottage
+                </span></a>
+                    </div>
+                </li>
+                <li class="li-items">
+                    <div class="animate">
+                        <a class="partner unselectable" href="./gmdpartner.html">Партнерская программа</a>
+                    </div>
+                </li>
+                <li class="li-items">
+                    <div class="animate">
+                        <a class="about-project unselectable" href="./gmdabout-us.html">О проекте</a>
+                    </div>
+                </li>
+                <li><button class="accordion">
+                    <div class="parent">Разместить
+                    <span class="material-icons">
+                        add_box
+                        </span>
+                    </div>
+                    <div class="panel">
+                        <?php if(isset($_SESSION['logged_user'])):
+                        ?>
+                            <ul class="panel-list">
+                                <li class="li-list">
+                                    <div class="block">
+                                        <div class="overlay2">
+                                        <span class="material-icons">
+                                            add_circle
+                                            </span>
+                                            <input type="image" placeholder=" ">
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="li-list">
+                                    <div class="block">
+                                        <div class="overlay2">
+                                        <span class="material-icons">
+                                            add_circle
+                                        </span>
+                                        <input type="image" placeholder=" ">
+                                    </div>
+                                </div>
+                                </li>
+                            </ul>
+                            <?php else: ?>
+                            <div class='btn-container'><a href='gmdlogin.php'><div class='sign-in-div'>Войдите</div></a>
+                            <a href='gmdregistr.php'><div class='register'>Зарегистрируйтесь</div></a></div>
+                            <?php endif; ?>
+                        </div>
+                </button>
+                </li>
+                <?php if(isset($_SESSION['logged_user'])):
+                ?>
+                <li>
+                    <div id="profile-container" class="profile-container">
+                        <?php echo "<img src='uploads/avatars/$user->avatar'>" ?>
+                    </div>
+                </li>
+                <li class="li-items">
+                <div class="animate">
+                    <a href="./gmdprofile.php" class="lk">Личный кабинет</a>
+                </div>
+                </li>
+                <li class="li-items">
+                <div class="animate">
+                    <div class="width-nav">
+                        <a href="./logouttoindex.php" class="logout">Выход</a>
+                        <a href="./logouttoindex.php">
+                            <span class="material-icons">
+                            logout
+                            </span></a>
+                    </div>
+                    </div>
+                </li>
+                <?php else: ?>
+                    <li class="li-items">
+                    <div class="animate">
+                        <a class="sign-in unselectable" href="./gmdlogin.php">Вход</a>
+                    </div>
+                </li>
+                <li class="li-items">
+                    <div class="animate unselectable">
+                        <a class="log-in" href="./gmdregistr.php">Регистрация</a>
+                    </div>
+                </li>
+                <?php endif; ?>
+            </ul>
+        </div>
+        </nav>
