@@ -1,3 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script defer src="https://snipp.ru/cdn/jquery/2.1.1/jquery.min.js"></script>
+    <script defer src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script defer src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script defer src="./accordion.js"></script>
+    <script defer src="./main.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+
+
     <nav class="navbar">
         <div class="header-top navbar-container container">
             <input type="checkbox" name="" id="">
@@ -10,8 +30,8 @@
                 <li class="li-items">
                     <div class="animate">
                         <a class="partner unselectable" href="./index.php"><span class="material-icons unselectable">
-                    cottage
-                </span></a>
+                                cottage
+                            </span></a>
                     </div>
                 </li>
                 <li class="li-items">
@@ -24,16 +44,35 @@
                         <a class="about-project unselectable" href="./gmdabout-us.html">О проекте</a>
                     </div>
                 </li>
-                <li><button class="accordion">
-                    <div class="parent">Разместить
-                    <span class="material-icons">
-                        add_box
-                        </span>
-                    </div>
-                    <div class="panel">
-                        <?php if(isset($_SESSION['logged_user'])):
+                <li>
+                    <button class="accordion">
+                        <div class="parent">Разместить
+                            <span class="material-icons">
+                                add_box
+                            </span>
+                        </div>
+                        <div class="panel">
+                            <?php if(isset($_SESSION['logged_user'])):
                         ?>
-                            <ul class="panel-list">
+
+                            <form action="/" class="form" method="post" id="form-img">
+                                <lable class="form__label">
+                                    <span class="label-text">Text</span>
+                                    <textarea class="form__textarea" type="textarea" name="textarea" ></textarea>
+                                </lable>
+
+                                <lable class="form__label">
+                                    <input class="form__input" type="file" accept="image/*" id="imgin" name="file" >
+                                    <!-- <span class="form__input-file">Выберите файл</span>
+                                <span class="form__input-text">Файл не выбран</span> -->
+                                </lable>
+                                <label class="form__label form__lable--position">
+                                    <span class="label-send">&#171;&#171;Send</span>
+                                    <input class="form__btn" src="./submit.png" type="image" name="btn">
+                                </label>
+
+                            </form>
+                            <!-- <ul class="panel-list">
                                 <li class="li-list">
                                     <div class="block">
                                         <div class="overlay2">
@@ -54,13 +93,18 @@
                                     </div>
                                 </div>
                                 </li>
-                            </ul>
+                            </ul> -->
                             <?php else: ?>
-                            <div class='btn-container'><a href='gmdlogin.php'><div class='sign-in-div'>Войдите</div></a>
-                            <a href='gmdregistr.php'><div class='register'>Зарегистрируйтесь</div></a></div>
+                            <div class='btn-container'><a href='gmdlogin.php'>
+                                    <div class='sign-in-div'>Войдите</div>
+                                </a>
+                                <a href='gmdregistr.php'>
+                                    <div class='register'>Зарегистрируйтесь</div>
+                                </a>
+                            </div>
                             <?php endif; ?>
-                        </div>
-                </button>
+                    </button>
+                    </ type="button">
                 </li>
                 <?php if(isset($_SESSION['logged_user'])):
                 ?>
@@ -70,23 +114,23 @@
                     </div>
                 </li>
                 <li class="li-items">
-                <div class="animate">
-                    <a href="./gmdprofile.php" class="lk">Личный кабинет</a>
-                </div>
+                    <div class="animate">
+                        <a href="./gmdprofile.php" class="lk">Личный кабинет</a>
+                    </div>
                 </li>
                 <li class="li-items">
-                <div class="animate">
-                    <div class="width-nav">
-                        <a href="./logouttoindex.php" class="logout">Выход</a>
-                        <a href="./logouttoindex.php">
-                            <span class="material-icons">
-                            logout
-                            </span></a>
-                    </div>
+                    <div class="animate">
+                        <div class="width-nav">
+                            <a href="./logouttoindex.php" class="logout">Выход</a>
+                            <a href="./logouttoindex.php">
+                                <span class="material-icons">
+                                    logout
+                                </span></a>
+                        </div>
                     </div>
                 </li>
                 <?php else: ?>
-                    <li class="li-items">
+                <li class="li-items">
                     <div class="animate">
                         <a class="sign-in unselectable" href="./gmdlogin.php">Вход</a>
                     </div>
@@ -99,4 +143,10 @@
                 <?php endif; ?>
             </ul>
         </div>
-        </nav>
+    </nav>
+<div class="container-user">
+    <canvas class="canvas-size" id="canvas"></canvas>
+</div>
+</body>
+
+</html>
