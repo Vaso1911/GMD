@@ -1,6 +1,6 @@
-<script src="./libs/jquery.js"></script>
+{/* <script src="./libs/jquery.js"></script>
 <!-- accordion -->
-<script>
+<script> */}
     if($('.msg-user').length){
         $( ".notithing" ).remove();
     }
@@ -17,27 +17,33 @@
     $( ".notithing" ).remove();
  }); // удаление текста
 
- if($( ".notithing-own" ).length){
+    if($( ".notithing-own" ).length){
     $('.message-box').remove();
  } // удаление textarea
 
+
 $(function(){
-    $('.block').on('click', function(){
+    $('.form').on('click', function(){
             $('.accordion').prop('disabled' , true)
     });
     });
 
-$(function(){
-    $('.block').on('click', function(){
-            $('.accordion').prop('disabled' , true)
-    });
-    });
+// $(function(){
+//     $('.block').on('click', function(){
+//             $('.accordion').prop('disabled' , true)
+//     });
+//     });
 
-    window.addEventListener("load",function(){
+    window.addEventListener("load", function(){
 });
 
     $(".accordion").click(function() {
         $(".accordion").toggleClass("transparent");
         $(".panel").slideToggle("fast");
     });
-</script>
+
+
+
+
+
+// </script>
